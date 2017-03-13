@@ -1,0 +1,10 @@
+﻿@html.extend('layout', function(model){
+
+    @html.block('content', function(model){
+        <div class="container">
+			<h2>@model.title</h2>
+		</div>
+		<hotels-component></hotels-component>
+    })
+
+})

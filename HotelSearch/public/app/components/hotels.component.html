@@ -1,0 +1,36 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="input-group col-md-3 pull-right">
+            <input type="text" class="form-control" placeholder="Filter by facilities" ng-model="facilitiesSearch" ng-change="facilitiesSearch === '' ? facilitiesSearch = undefined : facilitiesSearch">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="facilitiesSearch=undefined">Clear</button>
+            </span>
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>
+                            <a href="#" ng-click="sortDir === true ? sortDir = false : sortDir = true" ng-model="sortDir">
+                                <span class="glyphicon glyphicon-sort-by-attributes" ng-class="{'glyphicon-sort-by-attributes-alt' : sortDir, 'glyphicon-sort-by-attributes' : (sortDir===false )}"></span>
+                            </a>
+
+                        </th>
+                        <th>Hotel Name</th>
+                        <th>Facilities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="hotel in model.hotels | filter: { Facilities: facilitiesSearch } | orderBy:'StarRating':sortDir">
+                        <th><span class="glyphicon glyphicon-star" ng-repeat="a in model.createRange(hotel.StarRating) track by $index"></span></th>
+                        <th>{{hotel.Name}}</th>
+                        <th><div ng-repeat="facilities in hotel.Facilities"><span class="badge badge-default badge-pill">{{facilities}}</span></div></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

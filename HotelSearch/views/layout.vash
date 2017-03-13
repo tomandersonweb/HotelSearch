@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>@model.title</title>
+		<link rel="stylesheet" href="stylesheets/style.css" type="text/css" media="screen" charset="utf-8">
+        <link href="stylesheets/bootstrap.min.css" rel="stylesheet" />
+        <link href="stylesheets/bootstrap-theme.min.css" rel="stylesheet" />
+	</head>
+	<body ng-app="app">		
+		@html.block('content')
+
+		<footer>
+			@html.block('footer')	
+		</footer>
+		<script src="javascripts/jquery.min.js"></script>
+        <script src="javascripts/bootstrap.min.js"></script>
+        <script src="javascripts/bundle.js"></script>
+        <script src="javascripts/app-bundle.js"></script>
+	</body>
+</html>
